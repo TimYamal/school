@@ -11,18 +11,18 @@ function Footer() {
             </address>
             <div class="footer__logo">
                 <a href="#">
-                    <img src="/static/images/logo/logo_tensor.PNG" alt="логотип Тензор" />
+                    <img src="/assets/images/logo/logo_tensor.PNG" alt="логотип Тензор" />
                 </a>
             </div>
             <div class="footer__socialLinks">
                 <a href="#" class="footer__item">
-                    <img src="/static/images/icons/vk.PNG" alt="логотип VK" />
+                    <img src="/assets/images/icons/vk.PNG" alt="логотип VK" />
                 </a>
                 <a href="#" class="footer__item">
-                    <img src="/static/images/icons/inst.PNG" alt="логотип Inst" />
+                    <img src="/assets/images/icons/inst.PNG" alt="логотип Inst" />
                 </a>
                 <a href="#" class="footer__item">
-                    <img src="/static/images/icons/tg.PNG" alt="логотип TG" />
+                    <img src="/assets/images/icons/tg.PNG" alt="логотип TG" />
                 </a>
             </div>
         </div>

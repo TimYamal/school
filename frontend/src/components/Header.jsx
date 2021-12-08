@@ -5,18 +5,18 @@ function Header() {
     <header class="header">
         <div class="header__content container">
             <a href="#" class="header__logo">
-                <img src="/static/images/logo/logo_tensor-school.png" class="header__logoImage" alt="логотип школы Тензор" />
+                <img src="/assets/images/logo/logo_tensor-school.png" class="header__logoImage" alt="логотип школы Тензор" />
             </a>
             <nav class="header__menu">
                 <ul class="menu__list">
                     <li class="menu__listItem">
-                        <a href="#" class="menu__link link">уроки</a>
+                        <a href="#" class="menu__link link">курсы</a>
                     </li>
                     <li class="menu__listItem">
-                        <a href="#" class="menu__link link">записаться</a>
+                        <a href="#" class="menu__link link">преподаватели</a>
                     </li>
                     <li class="menu__listItem">
-                        <a href="#" class="menu__link link">вход</a>
+                        <a href="#" class="menu__link link">о&nbsp;компании</a>
                     </li>
                 </ul>
             </nav>
