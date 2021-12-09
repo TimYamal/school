@@ -1,2 +1,2 @@
 FLASK_APP=school.py
-FLASK_ENV=production
+FLASK_ENV=development
