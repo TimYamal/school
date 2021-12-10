@@ -20,7 +20,10 @@
 
 .header__logoImage {
     position: absolute;
+    top: 0;
+    left: 0;
     z-index: 1;
+    transform: scale(0.9);
 }
 
 .menu__list{

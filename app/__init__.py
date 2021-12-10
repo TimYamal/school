@@ -1,6 +1,6 @@
 import importlib
 
-from flask import Flask
+from flask import Flask, current_app
 
 from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
@@ -12,7 +12,7 @@ migrate = Migrate()
 
 
 def create_app(config_class=Config):
-    app = Flask(__name__, static_folder='static', static_url_path='/static/')
+    app = Flask(__name__, static_folder='../frontend/build', static_url_path='')
     app.config.from_object(config_class)
 
     db.init_app(app)
