@@ -6,13 +6,25 @@ import Course from './components/Course';
 import About from './components/About';
 import List from './components/List';
 import Teacher from './components/Teacher';
+import Modal from './components/Modal';
 
 function App() {
 
   const [statePage, setPage] = useState('index');
+  const [modal, setModal] = useState(false)
 
   function openPage (newPage) {
     setPage(newPage);
+  }
+
+  function observeModal (newStateModal) {
+    setModal(newStateModal);
+  }
+
+  function showModal () {
+    if (modal) {
+      return <Modal props={observeModal}/>
+    }
   }
 
   return (
@@ -22,7 +34,7 @@ function App() {
 
       { (() => {
           if (statePage === 'index') {
-            return <Index />
+            return <Index props={observeModal}/>
           } else if (statePage === 'courses') {
             return <Course />
           } else if (statePage === 'teachers') {
@@ -34,6 +46,8 @@ function App() {
       }
 
       <Footer />
+
+      {showModal()}
     </div>
   );
 }

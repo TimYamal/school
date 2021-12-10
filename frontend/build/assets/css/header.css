@@ -34,6 +34,7 @@
 .menu__listItem {
     margin-left: 20px;
     border-bottom: 2px solid transparent;
+    cursor: pointer;
 }
 
 .menu__listItem:first-child {
