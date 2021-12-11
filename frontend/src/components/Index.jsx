@@ -1,4 +1,5 @@
 import React from 'react';
+import MainSlider from './MainSlider';
 
 function Index(props) {
 
@@ -8,7 +9,7 @@ function Index(props) {
 
     return (
         <main class="main container">
-            <section class="main__slider">
+            {/* <section class="main__slider">
                 <div class="main__slideItem">
                     <div class="slideItem__content">
                         <div class="slideItem__left">
@@ -48,7 +49,10 @@ function Index(props) {
                         </svg>
                     </div>
                 </div>
-            </section>
+            </section> */}
+            <MainSlider
+            props={setNewState}
+            />
         </main>
     );
 }
