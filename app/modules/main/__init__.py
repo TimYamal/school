@@ -1,22 +1,40 @@
 from flask import Blueprint
-from flask_restful import Api, Resource
+from flask_restful import Api, Resource, reqparse
 
-from . import models
+from app import db
+
+from .models import Course
 
 bp = Blueprint('main', __name__)
 api = Api(bp)
 
 
-class UserAPI(Resource):
+class Courses(Resource):
+
+    parser = reqparse.RequestParser()
+
     def get(self, id):
-        pass
+        rec = Course.query.get(id)
+        return {
+            "id": rec.id,
+            "title": rec.title,
+            "description": rec.description,
+            "start_date": str(rec.date_start)
+        }
 
-    def put(self, id):
-        pass
 
-    def delete(self, id):
-        pass
+class CoursesList(Resource):
+
+    def get(self):
+        courses = Course.query.all()
+        return [{
+            "id": rec.id,
+            "title": rec.title,
+            "description": rec.description,
+            "start_date": str(rec.date_start)
+        } for rec in courses]
 
 
-api.add_resource(UserAPI, '/users/<int:id>', endpoint='user')
+api.add_resource(Courses, '/course/<int:id>', endpoint='course')
+api.add_resource(CoursesList, '/courses/', endpoint='courses')
 

@@ -7,9 +7,9 @@ class Course(db.Model):
     title = db.Column(db.String(255), index=True, nullable=False)
     short_description = db.Column(db.String(255))
     description = db.Column(db.Text)
-    # date_start
-    # duration
-    teacher_id = db.Column(db.Integer, db.ForeignKey('teacher.id'), nullable=False)
+    date_start = db.Column(db.Date)
+    duration = db.Column(db.Integer)
+    # teacher_id = db.Column(db.Integer, db.ForeignKey('teacher.id'), nullable=False)
 
     def __repr__(self):
         return self.title
@@ -22,7 +22,7 @@ class Teacher(db.Model):
     name = db.Column(db.String(255), index=True)
     patronymic = db.Column(db.String(255), index=True)
     description = db.Column(db.Text, index=True)
-    courses = db.relationship(Course, backref='teacher_id', lazy='dynamic')
+    # courses = db.relationship(Course, backref='teacher_id', lazy='dynamic')
 
     def full_name(self):
         """Полное имя преподавателя"""
@@ -36,9 +36,9 @@ class Member(db.Model):
     __tablename__ = 'member'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(255), index=True)
-    # telephone =
-    # email =
-    courses = db.relationship(Course, backref='teacher_id', lazy='dynamic')
+    telephone = db.Column(db.String(20), index=True)
+    email = db.Column(db.String(30), index=True)
+    # courses = db.relationship(Course, backref='teacher_id', lazy='dynamic')
 
     def __repr__(self):
         return self.name
