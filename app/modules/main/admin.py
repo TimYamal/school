@@ -6,7 +6,7 @@ from app import admin, db
 from app.modules.main import Course, Teacher, Member
 
 
-class CourseModelView(ModelView):
+class CourseAdminView(ModelView):
     column_labels = {
         'title': 'Название',
         'short_description': 'Краткое описание',
@@ -21,6 +21,25 @@ class CourseModelView(ModelView):
     }
 
 
-admin.add_view(CourseModelView(Course, db.session, name='Курсы'))
-admin.add_view(ModelView(Teacher, db.session, name='Преподаватели'))
-admin.add_view(ModelView(Member, db.session, name='Участники'))
+class TeacherAdminView(ModelView):
+    column_labels = {
+        'surname': 'Фамилия',
+        'name': 'Имя',
+        'patronymic': 'Отчество',
+        'description': 'Описание',
+        'courses': 'Курсы'
+    }
+
+
+class MemberAdminView(ModelView):
+    column_labels = {
+        'name': 'Имя',
+        'telephone': 'Телефон',
+        'email': 'Email',
+        'course': 'Курс'
+    }
+
+
+admin.add_view(CourseAdminView(Course, db.session, name='Курсы'))
+admin.add_view(TeacherAdminView(Teacher, db.session, name='Преподаватели'))
+admin.add_view(MemberAdminView(Member, db.session, name='Участники'))

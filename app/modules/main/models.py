@@ -27,6 +27,7 @@ class Course(db.Model):
     date_start = db.Column(db.Date)
     duration = db.Column(db.Integer)
     teacher_id = db.Column(db.Integer, db.ForeignKey('teacher.id'))
+    members = db.relationship('Member', backref='course', lazy='dynamic')
 
     def __repr__(self):
         return self.title
@@ -38,7 +39,7 @@ class Member(db.Model):
     name = db.Column(db.String(255), index=True)
     telephone = db.Column(db.String(20), index=True)
     email = db.Column(db.String(30), index=True)
-    # courses = db.relationship(Course, backref='teacher_id', lazy='dynamic')
+    course_id = db.Column(db.Integer, db.ForeignKey('course.id'))
 
     def __repr__(self):
         return self.name
