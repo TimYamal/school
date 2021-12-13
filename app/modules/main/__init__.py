@@ -24,7 +24,7 @@ class Courses(Resource):
 
 class CoursesList(Resource):
 
-    def get(self):
+    def post(self):
         courses = Course.query.all()
         return [{
             "id": rec.id,
@@ -34,6 +34,6 @@ class CoursesList(Resource):
         } for rec in courses]
 
 
-api.add_resource(Courses, '/course/<int:id>', endpoint='course')
+api.add_resource(Courses, '/course/', endpoint='course')
 api.add_resource(CoursesList, '/courses/', endpoint='courses')
 
