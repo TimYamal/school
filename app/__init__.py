@@ -1,7 +1,6 @@
 import importlib
 
 from flask import Flask, current_app
-
 from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
@@ -10,6 +9,7 @@ from config import Config
 
 db = SQLAlchemy()
 migrate = Migrate()
+admin = Admin()
 
 
 def create_app(config_class=Config):
