@@ -47,7 +47,7 @@ class Courses(Resource):
 
 class CoursesList(Resource):
 
-    def post(self):
+    def get(self):
         courses = Course.query.all()
         return [{
             "id": rec.id,
