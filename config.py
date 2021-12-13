@@ -13,7 +13,8 @@ class Config(object):
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     # Модули
     MODULES = [
-        'main'
+        'main',
+        'errors'
     ]
     # Название сайта
     SITE_NAME = 'Tensor School'

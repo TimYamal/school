@@ -1,9 +1,8 @@
 from flask import Blueprint
 from flask_restful import Api, Resource, reqparse
 
-from app import db
-
-from .models import Course
+from .models import Course, Member, Teacher
+from . import admin
 
 bp = Blueprint('main', __name__)
 api = Api(bp)
@@ -48,7 +47,7 @@ class Courses(Resource):
 
 class CoursesList(Resource):
 
-    def get(self):
+    def post(self):
         courses = Course.query.all()
         return [{
             "id": rec.id,

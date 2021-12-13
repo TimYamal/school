@@ -1,14 +1,16 @@
 import importlib
 
 from flask import Flask, current_app
-
 from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
+from flask_admin import Admin
+# from flask_cors import CORS
 
 from config import Config
 
 db = SQLAlchemy()
 migrate = Migrate()
+admin = Admin()
 
 
 def create_app(config_class=Config):
@@ -17,6 +19,8 @@ def create_app(config_class=Config):
 
     db.init_app(app)
     migrate.init_app(app, db)
+    admin.init_app(app)
+    # CORS(app)
 
     for module in app.config['MODULES']:
         mod = importlib.import_module('app.modules.' + module)

@@ -2,16 +2,24 @@
 
 .swiper-wrapper {
     height: 100%;
+    max-width: 600px;
+}
+
+.swiper-container {
+    margin: 0 !important;
 }
 
 .swiper-button-disabled {
     opacity: 0.5;
 }
 
+.main {
+    display: flex;
+}
+
 .main__slider {
     height: 600px;
     overflow: hidden;
-    position: relative;
 }
 
 .main__slideItem {
@@ -21,9 +29,9 @@
 }
 
 .main__slider-arrows {
-    position: absolute;
+    position: relative;
     left: 0;
-    bottom: 24px;
+    bottom: 45px;
     z-index: 2;
 }
 
@@ -104,5 +112,13 @@
 
     .slideItem__descriptionLine {
         font-size: 1.125rem;
+    }
+
+    .main__slider-arrows {
+        bottom: 0;
+    }
+
+    .slideItem__btnsContainer {
+        margin-top: 24px;
     }
 }
