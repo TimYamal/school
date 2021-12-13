@@ -2,6 +2,7 @@ import React from 'react';
 
 function Course() {
   return (
+    <>
     <main class="course container">
         <div class="course__banner">
             <img class="course__bannerImage" src="/assets/images/posts/banner.png" alt="banner" />
@@ -22,6 +23,7 @@ function Course() {
             </div>
         </div>
     </main>
+    </>
   );
 }
 

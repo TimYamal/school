@@ -11,7 +11,7 @@ import Modal from './components/Modal';
 function App() {
 
   const [statePage, setPage] = useState('index');
-  const [modal, setModal] = useState(false)
+  const [modal, setModal] = useState(false);
 
   function openPage (newPage) {
     setPage(newPage);
