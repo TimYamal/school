@@ -11,7 +11,8 @@ function Modal(props) {
             <div class="modal__wrapper">
                 <div class="modal__headline">
                     <div class="modal__title">
-                        Запись на курс Frontend-разработка
+                        <p>Запись на курс</p>
+                        <p>Frontend-разработка</p>
                     </div>
                     <div class="modal_close btn__close" onClick={setNewState}>
                         <svg class="btn__closeCross" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
