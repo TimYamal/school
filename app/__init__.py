@@ -4,7 +4,7 @@ from flask import Flask, current_app
 
 from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
-# from flask_cors import CORS
+from flask_cors import CORS
 
 from config import Config
 
@@ -18,7 +18,7 @@ def create_app(config_class=Config):
 
     db.init_app(app)
     migrate.init_app(app, db)
-    # CORS(app)
+    CORS(app)
 
     for module in app.config['MODULES']:
         mod = importlib.import_module('app.modules.' + module)
