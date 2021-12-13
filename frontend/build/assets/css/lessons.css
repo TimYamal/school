@@ -1,8 +1,7 @@
-.lessons{
+.lessons {
     padding-top: 100px;
     padding-bottom: 50px;
-    /* margin-right: -64px;
-    margin-bottom: -64px; */
+    display: flex;
 }
 
 .lessons__content {
@@ -13,46 +12,71 @@
     margin-bottom: -64px;
 }
 
-.lessons__item{
-    padding-bottom: 0.5em;
+.lessons__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     background: var(--gray-opacity-5);
     border-radius: 10px;
-    padding: 20px;
     max-width: 450px;
     width: 100%;
+    min-height: 180px;
     margin-left: 64px;
     margin-bottom: 64px;
+    padding: 20px;
 }
 
-.lessons__title{
+.lessons__title {
     font-size: 24px;
     text-align: center;
     font-weight: bold;
     margin-bottom: 0.5em;
 }
 
-.lessons__btns{
+.lessons__btns {
     display: flex;
     justify-content: space-between;
 }
 
-.lessons__disc{
+.lessons__disc {
     margin-bottom: 0.5em;
 }
 
-.lessons__date{
+.lessons__date {
     margin-bottom: 0.5em;
     text-align: right;
     color: var(--gray);
 }
 
-.lesson__btn{
+.lesson__btn {
+    font-size: 1rem;
     font-weight: 500;
     line-height: 1.75rem;
     border-radius: 20px;
     text-decoration: none;
     box-sizing: border-box;
-    padding-left: 1em;
-    padding-right: 1em;
+    padding: 0.4rem 1rem;
     height: min-content;
+}
+
+@media (max-width: 1152px) {
+
+    .lessons__item {
+        max-width: 400px;
+    }
+}
+
+@media (max-width: 992px) {
+
+    .lessons__content {
+        margin: 0;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .lessons__item {
+        max-width: 50%;
+        margin: 0;
+        margin-bottom: 24px;
+    }
 }
