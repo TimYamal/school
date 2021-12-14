@@ -5,6 +5,23 @@ body {
     height: 100%;
 }
 
+html {
+    overflow: -moz-scrollbars-vertical; 
+    overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+    width: 7px;
+    height: 0;
+    background-color: var(--gray-opacity-5);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--blue-secondary);
+    border: 1px solid var(--blue-primary);
+    border-radius: 8px;
+}
+
 main {
     flex: 1 1 auto;
 }
