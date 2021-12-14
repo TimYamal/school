@@ -75,7 +75,7 @@ class Members(Resource):
         #course_id = request.args.get('course_id')
 
         #new_member = Member(name, telephone, email, course_id)
-        new_member = Member(**request.args)
+        new_member = Member(**request.json)
         
         db.session.add(new_member)
         db.session.commit()

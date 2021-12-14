@@ -41,11 +41,5 @@ class Member(db.Model):
     email = db.Column(db.String(30), index=True)
     course_id = db.Column(db.Integer, db.ForeignKey('course.id'))
 
-    def __init__(self, name, telephone, email, course_id):
-        self.name = name
-        self.telephone = telephone
-        self.email = email
-        self.course_id = course_id
-
     def __repr__(self):
         return self.name
