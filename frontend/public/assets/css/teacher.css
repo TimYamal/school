@@ -1,33 +1,43 @@
-.teachers_Container{
-    width: 90%;
-    display: flex;
-    justify-content:flex-start;
-    margin: auto;
-    margin-bottom: 30px;
-}
-.teachers_item{
-    width: 20%;
-    margin-left: 10%;
-    text-align: center;
-    padding-bottom: 0.5em;
-    background: rgba(196, 196, 196, 0.5);
-    border-radius: 10px;
-    padding-top: 0.5em;
-}
-.teacher_name{
-    margin-bottom: 0em;
-}
-.teachers{
+.teachers {
     padding-top: 100px;
     padding-bottom: 50px;
     text-align: center;
-
 }
-.teacher_img{
-    width: 95%;
+
+.teachers__wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+    gap: 36px;
+}
+
+.teachers_item {
+    width: 100%;
+    padding: 20px;
+    text-align: center;
     border-radius: 10px;
-
+    box-sizing: border-box;
 }
-.teacher_course{
-    margin-bottom: 1em;
+
+.teacher_img {
+    max-width: 150px;
+    max-height: 150px;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: contain;
+}
+
+.teacher_name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 12px;
+}
+
+.teacher_course {
+    margin-top: 8px;
+}
+
+.teacher_disc {
+    margin-top: 16px;
 }
