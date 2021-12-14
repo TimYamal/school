@@ -4,9 +4,9 @@ from app import db
 class Teacher(db.Model):
     __tablename__ = 'teacher'
     id = db.Column(db.Integer, primary_key=True)
-    surname = db.Column(db.String(255), index=True)
-    name = db.Column(db.String(255), index=True)
-    patronymic = db.Column(db.String(255), index=True)
+    surname = db.Column(db.String(255), index=True, nullable=False)
+    name = db.Column(db.String(255), index=True, nullable=False)
+    patronymic = db.Column(db.String(255), index=True, nullable=False)
     description = db.Column(db.Text, index=True)
     photo = db.Column(db.String(255))
     courses = db.relationship('Course', backref='teacher', lazy='dynamic')
@@ -37,10 +37,10 @@ class Course(db.Model):
 class Member(db.Model):
     __tablename__ = 'member'
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(255), index=True)
+    name = db.Column(db.String(255), index=True, nullable=False)
     telephone = db.Column(db.String(20), index=True)
-    email = db.Column(db.String(30), index=True)
-    course_id = db.Column(db.Integer, db.ForeignKey('course.id'))
+    email = db.Column(db.String(30), index=True, nullable=False)
+    course_id = db.Column(db.Integer, db.ForeignKey('course.id'), nullable=False)
 
     def __repr__(self):
         return self.name
