@@ -47,7 +47,7 @@ class Teachers(Resource):
             "name": rec.name,
             "patronymic": rec.patronymic,
             "description": rec.description,
-            "courses": rec.courses
+            "photo": rec.photo
         } 
 
 
@@ -59,7 +59,9 @@ class TeachersList(Resource):
             "id": rec.id,
             "surname": rec.surname,
             "name": rec.name,
-            "patronymic": rec.patronymic
+            "patronymic": rec.patronymic,
+            "description": rec.description,
+            "photo": rec.photo
         } for rec in teachers]
 
 
