@@ -1,4 +1,5 @@
-import React from 'react';
+import axios from 'axios';
+import React, {useEffect, useState} from 'react';
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import 'swiper/swiper-bundle.min.css'
@@ -14,8 +15,20 @@ SwiperCore.use([Navigation]);
 
 export default function MainSlider(props) {
 
+    const [slide, setSlide] = useState(null);
+
     const navigationPrevRef = React.useRef(null)
     const navigationNextRef = React.useRef(null)
+
+    async function fetchCourses () {
+        // const response = await axios.get('http://127.0.0.1:5000/courses/');
+        const response = await axios.get('/courses/');
+        setSlide(response.data);
+    }
+
+    useEffect( () => {
+        fetchCourses ();
+    }, [])
 
     return (
 
@@ -32,7 +45,22 @@ export default function MainSlider(props) {
             swiper.params.navigation.nextEl = navigationNextRef.current;
         }}
         >
-            <SwiperSlide className="slideItem__text">
+            {
+                slide && slide.map((element, index) => {
+                    return (
+                        <SwiperSlide className="slideItem__text" key={element.id.toString()} data-index={element.id}>
+                            <div class="slideItem__title">
+                                Курс по {element.title}
+                            </div>
+                            <div class="slideItem__description">
+                                <div class="slideItem__descriptionLine" dangerouslySetInnerHTML={{__html: element.description}}>
+                                </div>
+                            </div>
+                        </SwiperSlide>
+                    )
+                })
+            }
+            {/* <SwiperSlide className="slideItem__text">
                 <div class="slideItem__title">
                     Курс по Frontend-разработке
                 </div>
@@ -48,41 +76,7 @@ export default function MainSlider(props) {
                         <li>получите опыт в командной разработке</li>
                     </ul>
                 </div>
-            </SwiperSlide>
-            <SwiperSlide className="slideItem__text">
-                <div class="slideItem__title">
-                    Курс по Frontend-разработке
-                </div>
-                <div class="slideItem__description">
-                    <p class="slideItem__descriptionLine">Компания Тензор набирает студентов
-                        на
-                        курс по Frontend-разработке.</p>
-                    <p class="slideItem__descriptionLine">На курсе Вы узнаете:</p>
-                    <ul class="slideItem__descriptionLine slideItem__descriptionLine_list">
-                        <li>что такое Frontend-разработка</li>
-                        <li>как работать с HTML и CSS</li>
-                        <li>познакомитесь с Javascript</li>
-                        <li>получите опыт в командной разработке</li>
-                    </ul>
-                </div>
-            </SwiperSlide>
-            <SwiperSlide className="slideItem__text">
-                <div class="slideItem__title">
-                    Курс по Frontend-разработке
-                </div>
-                <div class="slideItem__description">
-                    <p class="slideItem__descriptionLine">Компания Тензор набирает студентов
-                        на
-                        курс по Frontend-разработке.</p>
-                    <p class="slideItem__descriptionLine">На курсе Вы узнаете:</p>
-                    <ul class="slideItem__descriptionLine slideItem__descriptionLine_list">
-                        <li>что такое Frontend-разработка</li>
-                        <li>как работать с HTML и CSS</li>
-                        <li>познакомитесь с Javascript</li>
-                        <li>получите опыт в командной разработке</li>
-                    </ul>
-                </div>
-            </SwiperSlide>
+            </SwiperSlide> */}
             <div class="main__slider-arrows arrows">
                 <div class="arrow arrow-prew">
                     <svg ref={navigationPrevRef} width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">

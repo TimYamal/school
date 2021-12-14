@@ -36,7 +36,7 @@ function App() {
 
       { (() => {
           if (statePage === 'index') {
-            return <Index props={observeModal}/>
+            return <Index openModal={observeModal}/>
           } else if (statePage === 'courses') {
             return <List openModal={observeModal}/>
             // return <Course />
