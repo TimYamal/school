@@ -21,10 +21,8 @@ export default function MainSlider(props) {
     const navigationNextRef = React.useRef(null)
 
     async function fetchCourses () {
-    
-        // const response = await axios.get('https://jsonplaceholder.typicode.com/users');
-        const response = await axios.get('http://127.0.0.1:5000/courses/');
-        // const response = await axios.get('/courses/');
+        // const response = await axios.get('http://127.0.0.1:5000/courses/');
+        const response = await axios.get('/courses/');
         setSlide(response.data);
     }
 
