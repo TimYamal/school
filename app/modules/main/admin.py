@@ -42,7 +42,8 @@ class TeacherAdminView(ModelView):
         'name': 'Имя',
         'patronymic': 'Отчество',
         'description': 'Описание',
-        'courses': 'Курсы'
+        'courses': 'Курсы',
+        'photo': 'Фото'
     }
 
 

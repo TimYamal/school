@@ -8,6 +8,7 @@ class Teacher(db.Model):
     name = db.Column(db.String(255), index=True)
     patronymic = db.Column(db.String(255), index=True)
     description = db.Column(db.Text, index=True)
+    photo = db.Column(db.String(255))
     courses = db.relationship('Course', backref='teacher', lazy='dynamic')
 
     def full_name(self):
