@@ -23,17 +23,10 @@ function List(props) {
         <main className="lessons">
             <div className="container">
                 <div className="lessons__content">
-                    {/* <CardCourse props={cards[0]}/> */}
                     {
-    
                         cards && cards.map((element, index) => {
                             return <CardCourse curseInfo={element} modalStatus={props.openModal} />
-                            // <CardCourse props={element}/>
                         })
-
-                        // cards.forEach(element => {
-                        //     <CardCourse props={element}/>
-                        // })
                     }
                 </div>
             </div>
