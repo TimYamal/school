@@ -17,11 +17,9 @@ class CourseAdminView(ModelView):
         'teacher': 'Преподаватель'
     }
 
-    column_list = [
-        'title',
-        'date_start',
-        'duration',
-        'teacher'
+    column_exclude_list = [
+        'description',
+        'short_description'
     ]
 
     column_formatters = {
@@ -31,6 +29,10 @@ class CourseAdminView(ModelView):
     form_overrides = {
         'description': CKEditorField
     }
+
+    form_excluded_columns = [
+        'members'
+    ]
 
     create_template = 'edit.html'
     edit_template = 'edit.html'
@@ -45,6 +47,14 @@ class TeacherAdminView(ModelView):
         'courses': 'Курсы',
         'photo': 'Фото'
     }
+
+    column_exclude_list = [
+        'photo'
+    ]
+
+    form_excluded_columns = [
+        'courses'
+    ]
 
 
 class MemberAdminView(ModelView):

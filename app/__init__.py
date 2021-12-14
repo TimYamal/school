@@ -11,7 +11,7 @@ from config import Config
 
 db = SQLAlchemy()
 migrate = Migrate()
-admin = Admin(template_mode='bootstrap2')
+admin = Admin(template_mode='bootstrap3')
 
 
 def create_app(config_class=Config):
