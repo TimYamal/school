@@ -1,9 +1,10 @@
 from datetime import datetime
 
 from flask_admin.contrib.sqla import ModelView
+from flask_ckeditor import CKEditorField
 
 from app import admin, db
-from app.modules.main import Course, Teacher, Member
+from .models import Course, Teacher, Member
 
 
 class CourseAdminView(ModelView):
@@ -16,9 +17,23 @@ class CourseAdminView(ModelView):
         'teacher': 'Преподаватель'
     }
 
+    column_list = [
+        'title',
+        'date_start',
+        'duration',
+        'teacher'
+    ]
+
     column_formatters = {
         'date_start': lambda view, context, model, name: datetime.strftime(getattr(model, name), '%d.%m.%Y')
     }
+
+    form_overrides = {
+        'description': CKEditorField
+    }
+
+    create_template = 'edit.html'
+    edit_template = 'edit.html'
 
 
 class TeacherAdminView(ModelView):
@@ -38,6 +53,20 @@ class MemberAdminView(ModelView):
         'email': 'Email',
         'course': 'Курс'
     }
+
+    column_searchable_list = [
+        'name',
+        'telephone',
+        'email',
+        'course.title'
+    ]
+
+    column_filters = [
+        'name',
+        'email',
+        'telephone',
+        'course.title'
+    ]
 
 
 admin.add_view(CourseAdminView(Course, db.session, name='Курсы'))

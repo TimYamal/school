@@ -1,6 +1,7 @@
 import importlib
 
 from flask import Flask, current_app
+from flask_ckeditor import CKEditor
 from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
 from flask_admin import Admin
@@ -10,7 +11,7 @@ from config import Config
 
 db = SQLAlchemy()
 migrate = Migrate()
-admin = Admin()
+admin = Admin(template_mode='bootstrap2')
 
 
 def create_app(config_class=Config):
@@ -20,6 +21,7 @@ def create_app(config_class=Config):
     db.init_app(app)
     migrate.init_app(app, db)
     admin.init_app(app)
+    CKEditor(app)
     # CORS(app)
 
     for module in app.config['MODULES']:

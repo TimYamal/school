@@ -2,13 +2,12 @@ import axios from 'axios';
 import React, {useEffect, useState} from 'react';
 import CardCourse from './CardCourse';
 
-function List() {
+function List(props) {
 
     const [cards, setCards] = useState(null);
 
     async function fetchCourses () {
-    
-        // const response = await axios.get('https://jsonplaceholder.typicode.com/users');
+        // const response = await axios.get('http://127.0.0.1:5000/courses/');
         const response = await axios.get('/courses/');
         setCards(response.data);
     }
@@ -22,17 +21,10 @@ function List() {
         <main className="lessons">
             <div className="container">
                 <div className="lessons__content">
-                    {/* <CardCourse props={cards[0]}/> */}
                     {
-    
-                        cards && cards.map((element) => {
-                            return <CardCourse props={element}/>
-                            // <CardCourse props={element}/>
+                        cards && cards.map((element, index) => {
+                            return <CardCourse curseInfo={element} modalStatus={props.openModal} />
                         })
-
-                        // cards.forEach(element => {
-                        //     <CardCourse props={element}/>
-                        // })
                     }
                 </div>
             </div>

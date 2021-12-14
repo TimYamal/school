@@ -12,18 +12,20 @@ function App() {
 
   const [statePage, setPage] = useState('index');
   const [modal, setModal] = useState(false);
+  const [modalData, setModalData] = useState(null);
 
   function openPage (newPage) {
     setPage(newPage);
   }
 
-  function observeModal (newStateModal) {
+  function observeModal (newStateModal, courseData) {
     setModal(newStateModal);
+    setModalData(courseData);
   }
 
   function showModal () {
     if (modal) {
-      return <Modal props={observeModal}/>
+      return <Modal showModal={observeModal} courseData={modalData}/>
     }
   }
 
@@ -34,9 +36,9 @@ function App() {
 
       { (() => {
           if (statePage === 'index') {
-            return <Index props={observeModal}/>
+            return <Index openModal={observeModal}/>
           } else if (statePage === 'courses') {
-            return <List />
+            return <List openModal={observeModal}/>
             // return <Course />
           } else if (statePage === 'teachers') {
             return <Teacher />

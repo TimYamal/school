@@ -2,8 +2,9 @@ from flask import Blueprint, request
 from flask_restful import Api, Resource, reqparse
 from app import db
 
-from .models import Course, Member, Teacher
+from app import db
 from . import admin
+from .models import Course, Member, Teacher
 
 bp = Blueprint('main', __name__)
 api = Api(bp)
@@ -16,7 +17,7 @@ class Courses(Resource):
         return {
             "id": rec.id,
             "title": rec.title,
-            "short_description": rec.description,
+            "short_description": rec.short_description,
             "description": rec.description,
             "date_start": str(rec.date_start),
             "duration": str(rec.duration)
@@ -29,11 +30,12 @@ class CoursesList(Resource):
         return [{
             "id": rec.id,
             "title": rec.title,
-            "short_description": rec.description,
+            "short_description": rec.short_description,
             "description": rec.description,
             "date_start": str(rec.date_start),
             "duration": str(rec.duration)
         } for rec in courses]
+
 
 class Teachers(Resource):
 
@@ -48,6 +50,7 @@ class Teachers(Resource):
             "courses": rec.courses
         } 
 
+
 class TeachersList(Resource):
 
     def get(self):
@@ -58,6 +61,7 @@ class TeachersList(Resource):
             "name": rec.name,
             "patronymic": rec.patronymic
         } for rec in teachers]
+
 
 class Members(Resource):
 
@@ -83,6 +87,7 @@ class Members(Resource):
             "email": new_member.email,
             "course_id": new_member.course_id
         }
+
 
 api.add_resource(Courses, '/course/<int:id>', endpoint='course')
 api.add_resource(CoursesList, '/courses/', endpoint='courses')
