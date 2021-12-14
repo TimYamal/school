@@ -17,6 +17,13 @@ class CourseAdminView(ModelView):
         'teacher': 'Преподаватель'
     }
 
+    column_list = [
+        'title',
+        'date_start',
+        'duration',
+        'teacher'
+    ]
+
     column_formatters = {
         'date_start': lambda view, context, model, name: datetime.strftime(getattr(model, name), '%d.%m.%Y')
     }
