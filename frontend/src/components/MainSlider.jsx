@@ -53,7 +53,7 @@ export default function MainSlider(props) {
                                 Курс по {element.title}
                             </div>
                             <div class="slideItem__description">
-                                <div class="slideItem__descriptionLine" dangerouslySetInnerHTML={{__html: element.description}}>
+                                <div class="slideItem__descriptionLine" dangerouslySetInnerHTML={{__html: element.short_description}}>
                                 </div>
                             </div>
                         </SwiperSlide>
