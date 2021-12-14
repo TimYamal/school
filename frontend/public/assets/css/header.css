@@ -27,6 +27,19 @@
     cursor: pointer;
 }
 
+.header__right {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: flex-end;
+}
+
+.header__link {
+    color: var(--white);
+    font-size: 1.2rem;
+    margin-bottom: 24px;
+}
+
 .menu__list{
     display: flex;
     list-style-type: none;

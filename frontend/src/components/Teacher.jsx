@@ -1,41 +1,35 @@
-import React from 'react';
+import axios from 'axios';
+import React, {useEffect, useState} from 'react';
 
 function Teacher() {
+
+  const [teachers, setTeachers] = useState(null);
+
+  async function fetchTeacher () {
+      // const response = await axios.get('http://127.0.0.1:5000/teachers/');
+      const response = await axios.get('/teachers/');
+      setTeachers(response.data);
+      console.log(response.data);
+  }
+  
+  useEffect( () => {
+      fetchTeacher ();
+  }, [])
+
   return (
-    <main class="teachers">
-      <div class="teachers_Container">
-        <div class="teachers_item">
-          <img class="teacher_img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBTn8OO8ODvYLZsVsuGvl9dNswWuulv9bspg&usqp=CAU" alt="" />
-          <p class="teacher_name">Иванов Иван Иванович</p>
-          <p class="teacher_course">Frontend</p>
-          <p class="teacher_disc">Я Работаю на должности такой-то. В компаниии Такой-то  5 лет.Мне очень нравится</p>
-        </div>
-        <div class="teachers_item">
-          <img class="teacher_img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBTn8OO8ODvYLZsVsuGvl9dNswWuulv9bspg&usqp=CAU" alt="" />
-          <p class="teacher_name">Иванов Иван Иванович</p>
-          <p class="teacher_course">Frontend</p>
-          <p class="teacher_disc">Я Работаю на должности такой-то. В компаниии Такой-то  5 лет.Мне очень нравится</p>
-        </div>
-        <div class="teachers_item">
-          <img class="teacher_img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBTn8OO8ODvYLZsVsuGvl9dNswWuulv9bspg&usqp=CAU" alt="" />
-          <p class="teacher_name">Иванов Иван Иванович</p>
-          <p class="teacher_course">Frontend</p>
-          <p class="teacher_disc">Я Работаю на должности такой-то. В компаниии Такой-то  5 лет.Мне очень нравится</p>
-        </div>
-      </div>
-      <div class="teachers_Container">
-        <div class="teachers_item">
-          <img class="teacher_img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBTn8OO8ODvYLZsVsuGvl9dNswWuulv9bspg&usqp=CAU" alt="" />
-          <p class="teacher_name">Иванов Иван Иванович</p>
-          <p class="teacher_course">Frontend</p>
-          <p class="teacher_disc">Я Работаю на должности такой-то. В компаниии Такой-то  5 лет.Мне очень нравится</p>
-        </div>
-        <div class="teachers_item">
-          <img class="teacher_img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBTn8OO8ODvYLZsVsuGvl9dNswWuulv9bspg&usqp=CAU" alt="" />
-          <p class="teacher_name">Иванов Иван Иванович</p>
-          <p class="teacher_course">Frontend</p>
-          <p class="teacher_disc">Я Работаю на должности такой-то. В компаниии Такой-то  5 лет.Мне очень нравится</p>
-        </div>
+    <main class="teachers container">
+      <div class="teachers__wrapper">
+        {
+          teachers && teachers.map((teacher) => {
+            return (
+              <div class="teachers_item">
+                <img class="teacher_img" src={teacher.surname.photo ? teacher.surname.photo : 'https://e7.pngegg.com/pngimages/527/312/png-clipart-computer-icons-icon-design-user-web-user-icon-avatar-user.png' } alt={teacher.name} />
+                <p class="teacher_name">{teacher.surname} {teacher.name} {teacher.patronymic}</p>
+                <p class="teacher_course">{teacher.description}</p>
+              </div>
+            )
+          })
+        }
       </div>
     </main>
   );

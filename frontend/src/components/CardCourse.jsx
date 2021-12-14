@@ -17,13 +17,16 @@ function CardCourse(props) {
 
     return (
         <div className="lessons__item">
-            <p className="lessons__title">{title}</p>
-            <p className="lessons__disc" dangerouslySetInnerHTML={{__html: description}}></p>
-            {/* <p className="lessons__date">Дата начала: {date_start}</p> */}
-            <p className="lessons__date">Дата начала: {dateFormat(date_start)}</p>
-            <div className="lessons__btns">
-                <div className="lesson__btn btn btn-primary">Подробнее</div>
-                <div className="lesson__btn btn btn-secondary" onClick={openModal}>Записаться</div>
+            <div className="lessons__text">
+                <p className="lessons__title">{title}</p>
+                <p className="lessons__disc" dangerouslySetInnerHTML={{__html: description}}></p>
+            </div>
+            <div className="lessons__bottom">
+                <p className="lessons__date">Дата начала: {dateFormat(date_start)}</p>
+                <div className="lessons__btns">
+                    <div className="lesson__btn btn btn-primary">Подробнее</div>
+                    <div className="lesson__btn btn btn-secondary" onClick={openModal}>Записаться</div>
+                </div>
             </div>
         </div>
     );
