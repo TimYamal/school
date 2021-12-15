@@ -14,7 +14,8 @@ class Config(object):
     # Модули
     MODULES = [
         'main',
-        'errors'
+        'errors',
+        'auth'
     ]
     # Название сайта
     SITE_NAME = 'Tensor School'
