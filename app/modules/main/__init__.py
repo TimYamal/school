@@ -1,12 +1,11 @@
 from flask import Blueprint, request
-from flask_restful import Api, Resource, reqparse
-from app import db
+from flask_restful import Api, Resource
 
 from app import db
 from . import admin
 from .models import Course, Member, Teacher
 
-bp = Blueprint('main', __name__)
+bp = Blueprint('main', __name__, template_folder='templates')
 api = Api(bp)
 
 
@@ -22,6 +21,7 @@ class Courses(Resource):
             "date_start": str(rec.date_start),
             "duration": str(rec.duration)
         }
+
 
 class CoursesList(Resource):
 
@@ -48,7 +48,7 @@ class Teachers(Resource):
             "patronymic": rec.patronymic,
             "description": rec.description,
             "photo": rec.photo
-        } 
+        }
 
 
 class TeachersList(Resource):
@@ -67,18 +67,16 @@ class TeachersList(Resource):
 
 class Members(Resource):
 
-
     def post(self):
-        
-        #name = request.args.get('name')
-        #telephone = request.args.get('telephone')
-        #email = request.args.get('email')
+        # name = request.args.get('name')
+        # telephone = request.args.get('telephone')
+        # email = request.args.get('email')
 
-        #course_id = request.args.get('course_id')
+        # course_id = request.args.get('course_id')
 
-        #new_member = Member(name, telephone, email, course_id)
+        # new_member = Member(name, telephone, email, course_id)
         new_member = Member(**request.json)
-        
+
         db.session.add(new_member)
         db.session.commit()
 
@@ -94,9 +92,7 @@ class Members(Resource):
 api.add_resource(Courses, '/course/<int:id>', endpoint='course')
 api.add_resource(CoursesList, '/courses/', endpoint='courses')
 
-
 api.add_resource(Teachers, '/teacher/<int:id>', endpoint='teacher')
 api.add_resource(TeachersList, '/teachers/', endpoint='teachers')
-
 
 api.add_resource(Members, '/member/', endpoint='member')

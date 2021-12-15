@@ -34,6 +34,13 @@ class CourseAdminView(ModelView):
         'members'
     ]
 
+    column_searchable_list = [
+        'title',
+        'teacher.surname',
+        'teacher.name',
+        'teacher.patronymic'
+    ]
+
     create_template = 'edit.html'
     edit_template = 'edit.html'
 
@@ -54,6 +61,12 @@ class TeacherAdminView(ModelView):
 
     form_excluded_columns = [
         'courses'
+    ]
+
+    column_searchable_list = [
+        'surname',
+        'name',
+        'patronymic'
     ]
 
 
