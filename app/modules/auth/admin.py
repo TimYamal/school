@@ -11,6 +11,7 @@ class UserAdminView(ModelView):
     }
 
     can_delete = False
+    can_edit = False
 
     column_exclude_list = [
         'password_hash'
