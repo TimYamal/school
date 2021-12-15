@@ -7,9 +7,10 @@ function Modal(props) {
     const [userName, setUserName] = useState('');
     const [userEmail, setUserEmail] = useState('');
     const [disabledButton, setDisabledButton] = useState(true);
+    const [modalStatus, setModalStatus] = useState('openForm');
 
     useEffect( () => {
-        validName(userName) && userEmail ? setDisabledButton(false) : setDisabledButton(true)
+        validName(userName) && validEmail(userEmail) ? setDisabledButton(false) : setDisabledButton(true)
     }, [userName, userEmail])
 
     function setNewState() {
@@ -46,25 +47,15 @@ function Modal(props) {
         console.log(props);
         // const response = await axios.post('http://127.0.0.1:5000/member/', user);
         const response = await axios.post('/member/', user);
-        console.log(response);
-
+        if (response.status === 200) {
+            setModalStatus('done')
+        } else {
+            setModalStatus('error')
+        }
     }
 
-    return (
-        <div className="modal">
-            <div className="modal__wrapper">
-                <div className="modal__headline">
-                    <div className="modal__title">
-                        <p>Запись на курс</p>
-                        <p>{props.courseData.title}</p>
-                    </div>
-                    <div className="modal_close btn__close" onClick={setNewState}>
-                        <svg className="btn__closeCross" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M18 6L6 18" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                            <path d="M6 6L18 18" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                        </svg>
-                    </div>
-                </div>
+    function mount() {
+        if(modalStatus==='openForm') {return (
                 <form action="#" className="modal__body form-signUp">
                     <div className="form-signUp__areas">
                         <label for="name" className="form-signUp__item">
@@ -84,7 +75,44 @@ function Modal(props) {
                             Записаться
                         </button>
                     </div>
-                </form>
+                </form>)
+        } else if (modalStatus==='done') {
+            return (
+                <div className="modal__body">
+                    <p>Вы успешно записались на курс</p>
+                    <div className="form-signUp__bottom">
+                        <button
+                            className='btn btn-secondary btn__form_singUp'
+                            onClick={setNewState}>
+                                Ок
+                        </button>
+                    </div>
+                </div>)
+        } else {
+            return (
+                <div className="modal__body">
+                    <p>Попробуйте позже</p>
+                </div>
+            )
+        }
+    }
+
+    return (
+        <div className="modal">
+            <div className="modal__wrapper">
+                <div className="modal__headline">
+                    <div className="modal__title">
+                        <p>Запись на курс</p>
+                        <p>{props.courseData.title}</p>
+                    </div>
+                    <div className="modal_close btn__close" onClick={setNewState}>
+                        <svg className="btn__closeCross" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M18 6L6 18" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path d="M6 6L18 18" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                    </div>
+                </div>
+                {mount()}
             </div>
         </div>
     );

@@ -4,10 +4,15 @@ import 'moment/locale/ru';
 
 function CardCourse(props) {
 
-    const  {date_start, description, title} = props.curseInfo;
+    const  {date_start, description, title, id} = props.curseInfo;
 
     function openModal() {
         props.modalStatus(true, props.curseInfo);
+    }
+
+    function openPageCourse() {
+        props.newCourseId(id);
+        props.updatePage('course');
     }
 
     function dateFormat(date) {
@@ -24,7 +29,7 @@ function CardCourse(props) {
             <div className="lessons__bottom">
                 <p className="lessons__date">Дата начала: {dateFormat(date_start)}</p>
                 <div className="lessons__btns">
-                    <div className="lesson__btn btn btn-primary">Подробнее</div>
+                    <div className="lesson__btn btn btn-primary" onClick={openPageCourse}>Подробнее</div>
                     <div className="lesson__btn btn btn-secondary" onClick={openModal}>Записаться</div>
                 </div>
             </div>

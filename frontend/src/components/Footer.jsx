@@ -10,7 +10,7 @@ function Footer() {
                <b>Телефон:</b> <a className='footer__link' href="tel:+7 347 246-16-44">+7 347 246-16-44</a>
             </address>
             <div class="footer__logo">
-                <a href="https://tensor.ru/">
+                <a href="https://tensor.ru/" target="_blank">
                     <img src="/assets/images/logo/logo_tensor.PNG" alt="логотип Тензор" />
                 </a>
             </div>

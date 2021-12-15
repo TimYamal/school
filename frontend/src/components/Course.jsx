@@ -1,30 +1,54 @@
-import React from 'react';
+import axios from 'axios';
+import React, {useEffect, useState} from 'react';
+import moment from 'moment'
+import 'moment/locale/ru';
 
-function Course() {
-  return (
-    <>
-    <main class="course container">
-        <div class="course__banner">
-            <img class="course__bannerImage" src="/assets/images/posts/banner.png" alt="banner" />
-        </div>
-        <div class="course__body">
-            <div class="course__content">
-                <div class="course__title">Frontend-разработка</div>
-                <div class="course__description">
-                    Frontend — клиентская сторона пользовательского интерфейса к программно-аппаратной части
-                    сервиса.
+function Course(props) {
+    const {courseId} = props;
+
+    const [course, setCourse] = useState(null);
+
+    useEffect( () => {
+        fetchCourse(courseId)
+    }, []);
+
+    async function fetchCourse (index) {
+        // const response = await axios.get(`http://127.0.0.1:5000/course/${index}`)
+        const response = await axios.get(`/course/${index}`)
+        setCourse(response.data);
+        setTimeout(() => {
+            console.log(course)
+        }, 1000);
+    }
+
+    function openModal() {
+        props.openModal(true, course);
+    }
+
+    function dateFormat(date) {
+        moment.locale('ru');
+        return moment(date).format('LL')
+    }
+
+    return (
+        <main class="course container">
+            <div class="course__banner">
+                <img class="course__bannerImage" src="/assets/images/posts/banner.png" alt="banner" />
+            </div>
+            <div class="course__body">
+                <div class="course__content">
+                    <div class="course__title">{course?.title}</div>
+                    <div class="course__description" dangerouslySetInnerHTML={{__html: course?.description}}></div>
+                </div>
+                <div class="course__other">
+                    <div class="course__date">{course && dateFormat(course?.date_start)}</div>
+                    <div class="course__btns">
+                        <button onClick={openModal} class="btn btn-secondary btn-signUp">Записаться</button>
+                    </div>
                 </div>
             </div>
-            <div class="course__other">
-                <div class="course__date">7 октября 18:00</div>
-                <div class="course__btns">
-                    <a href="#" class="btn btn-secondary btn-signUp">Записаться</a>
-                </div>
-            </div>
-        </div>
-    </main>
-    </>
-  );
+        </main>
+    );
 }
 
 export default Course;

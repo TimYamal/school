@@ -1,10 +1,10 @@
 import React from 'react';
 
-function Header(updatePage) {
+function Header(props) {
 
     function openPage(event) {
         if (event.target.id) {
-            updatePage.updatePage(event.target.id)
+            props.updatePage(event.target.id)
         }
     }
 

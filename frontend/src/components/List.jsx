@@ -23,7 +23,7 @@ function List(props) {
                 <div className="lessons__content">
                     {
                         cards && cards.map((element, index) => {
-                            return <CardCourse curseInfo={element} modalStatus={props.openModal} />
+                            return <CardCourse curseInfo={element} modalStatus={props.openModal} updatePage={props.updatePage} newCourseId={props.newCourseId}/>
                         })
                     }
                 </div>

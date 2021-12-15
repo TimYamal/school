@@ -62,3 +62,8 @@
 .modal__body {
     margin-top: 36px;
 }
+
+.modal__body p {
+    text-align: center;
+    font-size: 1.2rem;
+}
