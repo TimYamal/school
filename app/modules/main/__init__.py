@@ -1,7 +1,8 @@
-from flask import Blueprint, request
+from flask import Blueprint, request, render_template
 from flask_restful import Api, Resource
+from flask_mail import Message
 
-from app import db
+from app import db, mail
 from . import admin
 from .models import Course, Member, Teacher
 
@@ -68,14 +69,11 @@ class TeachersList(Resource):
 class Members(Resource):
 
     def post(self):
-        # name = request.args.get('name')
-        # telephone = request.args.get('telephone')
-        # email = request.args.get('email')
-
-        # course_id = request.args.get('course_id')
-
-        # new_member = Member(name, telephone, email, course_id)
         new_member = Member(**request.json)
+        course = Course.query.get(new_member.course_id)
+        msg = Message("Вы успешно зарегистрированы на курс", sender="tensorschool.project@gmail.com", recipients=[new_member.email])
+        msg.html = render_template('letter.html', course_name = course.title, course_date = (course.date_start).strftime("%m.%d.%Y"), member_name = new_member.name)
+        mail.send(msg)
 
         db.session.add(new_member)
         db.session.commit()
