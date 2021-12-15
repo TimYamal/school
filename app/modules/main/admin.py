@@ -14,7 +14,10 @@ class CourseAdminView(ModelView):
         'description': 'Описание',
         'date_start': 'Дата начала',
         'duration': 'Кол-во занятий',
-        'teacher': 'Преподаватель'
+        'teacher': 'Преподаватель',
+        'teacher.surname': 'Фамилия',
+        'teacher.name': 'Имя',
+        'teacher.patronymic': 'Отчество'
     }
 
     column_exclude_list = [
@@ -75,7 +78,8 @@ class MemberAdminView(ModelView):
         'name': 'Имя',
         'telephone': 'Телефон',
         'email': 'Email',
-        'course': 'Курс'
+        'course': 'Курс',
+        'course.title': 'Название курса'
     }
 
     column_searchable_list = [

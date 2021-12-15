@@ -29,7 +29,7 @@ function CardCourse(props) {
             <div className="lessons__bottom">
                 <p className="lessons__date">Дата начала: {dateFormat(date_start)}</p>
                 <div className="lessons__btns">
-                    <div className="lesson__btn btn btn-primary" onClick={openPageCourse}>Подробнее</div>
+                    <a href={`/#course?id=${id}`} className="lesson__btn btn btn-primary" onClick={openPageCourse}>Подробнее</a>
                     <div className="lesson__btn btn btn-secondary" onClick={openModal}>Записаться</div>
                 </div>
             </div>

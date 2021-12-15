@@ -1,5 +1,5 @@
 .teachers {
-    padding-top: 100px;
+    padding-top: 50px;
     padding-bottom: 50px;
     text-align: center;
 }
@@ -20,6 +20,7 @@
 }
 
 .teacher_img {
+    border: 3px solid var(--orange-darkened);
     max-width: 150px;
     max-height: 150px;
     width: 100%;

@@ -1,5 +1,5 @@
 .lessons {
-    padding-top: 100px;
+    padding-top: 50px;
     padding-bottom: 50px;
     display: flex;
 }
@@ -43,6 +43,7 @@
 
 .lessons__disc {
     margin-bottom: 0.5em;
+    line-height: 150%;
 }
 
 .lessons__date {

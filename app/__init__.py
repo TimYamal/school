@@ -5,6 +5,7 @@ from flask_ckeditor import CKEditor
 from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
 from flask_admin import Admin, AdminIndexView
+from flask_admin.menu import MenuLink
 from flask_bootstrap import Bootstrap
 from flask_login import LoginManager, current_user
 from flask_mail import Mail, Message
@@ -48,5 +49,8 @@ def create_app(config_class=Config):
     for module in app.config['MODULES']:
         mod = importlib.import_module('app.modules.' + module)
         app.register_blueprint(mod.bp)
+
+    # Кнопка выхода для админки
+    admin.add_menu_item(MenuLink(name='Выход', url='/logout'))
 
     return app
