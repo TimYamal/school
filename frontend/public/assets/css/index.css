@@ -18,7 +18,7 @@
 }
 
 .main__slider {
-    height: 600px;
+    min-height: 600px;
     overflow: hidden;
 }
 

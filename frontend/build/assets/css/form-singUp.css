@@ -31,6 +31,8 @@
 
 .form-signUp__bottom {
     margin-top: 24px;
+    display: flex;
+    justify-content: center;
 }
 
 .btn__form_singUp {

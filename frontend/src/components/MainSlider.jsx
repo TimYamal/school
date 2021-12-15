@@ -50,7 +50,7 @@ export default function MainSlider(props) {
                     return (
                         <SwiperSlide className="slideItem__text" key={element.id.toString()} data-index={element.id}>
                             <div class="slideItem__title">
-                                Курс по {element.title}
+                                {element.title}
                             </div>
                             <div class="slideItem__description">
                                 <div class="slideItem__descriptionLine" dangerouslySetInnerHTML={{__html: element.short_description}}>

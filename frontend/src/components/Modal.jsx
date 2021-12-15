@@ -1,13 +1,38 @@
 import axios from 'axios';
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 // import React, {useEffect, useState} from 'react';
 
 function Modal(props) {
 
-    // const [userName, setUserName] = useState(null);
+    const [userName, setUserName] = useState('');
+    const [userEmail, setUserEmail] = useState('');
+    const [disabledButton, setDisabledButton] = useState(true);
+    const [modalStatus, setModalStatus] = useState('openForm');
+
+    useEffect( () => {
+        validName(userName) && validEmail(userEmail) ? setDisabledButton(false) : setDisabledButton(true)
+    }, [userName, userEmail])
 
     function setNewState() {
         props.showModal(false);
+    }
+
+    function validName (name) {
+        // const regExp = new RegExp(/^[а-яА-Я ,.'-]{2,100}+$/i);
+        // if(regExp.test(name)) {
+        if(name.length > 1) {
+            return true
+        } else {
+            return false
+        }
+    }
+
+    function validEmail (email) {
+        if(email.length > 1) {
+            return true
+        } else {
+            return false
+        }
     }
 
     function getForm(event) {
@@ -22,8 +47,54 @@ function Modal(props) {
         console.log(props);
         // const response = await axios.post('http://127.0.0.1:5000/member/', user);
         const response = await axios.post('/member/', user);
-        console.log(response);
+        if (response.status === 200) {
+            setModalStatus('done')
+        } else {
+            setModalStatus('error')
+        }
+    }
 
+    function mount() {
+        if(modalStatus==='openForm') {return (
+                <form action="#" className="modal__body form-signUp">
+                    <div className="form-signUp__areas">
+                        <label for="name" className="form-signUp__item">
+                            <p className="form-signUp__description">Имя</p>
+                            <input value={userName} onChange={e => setUserName(e.target.value)} type="text" name="userName" id="name" className="form-signUp__input" placeholder="Введите Ваше имя" />
+                        </label>
+                        <label for="phone" className="form-signUp__item">
+                            <p className="form-signUp__description">Email</p>
+                            <input value={userEmail} onChange={e => setUserEmail(e.target.value)}  type="email" name="userEmail" id="email" className="form-signUp__input" placeholder="user@email.com" />
+                        </label>
+                    </div>
+                    <div className="form-signUp__bottom">
+                        {/* <button className="btn btn-secondary btn__form_singUp {}" onClick={getForm}>Записаться</button> */}
+                        <button
+                        className={`btn btn-secondary btn__form_singUp ${disabledButton ? 'btn-disabled' : ''}`}
+                        onClick={getForm}>
+                            Записаться
+                        </button>
+                    </div>
+                </form>)
+        } else if (modalStatus==='done') {
+            return (
+                <div className="modal__body">
+                    <p>Вы успешно записались на курс</p>
+                    <div className="form-signUp__bottom">
+                        <button
+                            className='btn btn-secondary btn__form_singUp'
+                            onClick={setNewState}>
+                                Ок
+                        </button>
+                    </div>
+                </div>)
+        } else {
+            return (
+                <div className="modal__body">
+                    <p>Попробуйте позже</p>
+                </div>
+            )
+        }
     }
 
     return (
@@ -41,21 +112,7 @@ function Modal(props) {
                         </svg>
                     </div>
                 </div>
-                <form action="#" className="modal__body form-signUp">
-                    <div className="form-signUp__areas">
-                        <label for="name" className="form-signUp__item">
-                            <p className="form-signUp__description">Имя</p>
-                            <input type="text" name="userName" id="name" className="form-signUp__input" placeholder="Введите Ваше имя" />
-                        </label>
-                        <label for="phone" className="form-signUp__item">
-                            <p className="form-signUp__description">Email</p>
-                            <input type="email" name="userEmail" id="email" className="form-signUp__input" placeholder="user@email.com" />
-                        </label>
-                    </div>
-                    <div className="form-signUp__bottom">
-                        <button className="btn btn-secondary btn__form_singUp" onClick={getForm}>Записаться</button>
-                    </div>
-                </form>
+                {mount()}
             </div>
         </div>
     );

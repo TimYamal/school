@@ -3,7 +3,7 @@ import React from 'react';
 function About() {
     return (
         <main class="about container">
-            <img class="about__banner" src="images/posts/banner.png" alt="красивый баннер" />
+            <img class="about__banner" src="/assets/images/posts/banner.png" alt="красивый баннер" />
             <div class="about__item">
                 <h1 class="about__title">О компании</h1>
                 <p class="about__text">Что такое Тензор? Это вектор. И мы движемся вперед с 1996 года как в работе, так и просто по жизни.

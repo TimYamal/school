@@ -36,8 +36,13 @@
 
 .header__link {
     color: var(--white);
-    font-size: 3rem;
+    font-size: 1.2rem;
     margin-bottom: 24px;
+}
+
+.header__link:hover,
+.menu__link:hover {
+    color: var(--gray-light);
 }
 
 .menu__list{
@@ -56,7 +61,7 @@
 }
 
 .menu__listItem:hover {
-    border-bottom: 2px solid var(--white);
+    border-bottom: 2px solid var(--gray-light);
 }
 
 .menu__link {
