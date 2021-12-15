@@ -6,8 +6,8 @@ function Teacher() {
   const [teachers, setTeachers] = useState(null);
 
   async function fetchTeacher () {
-      // const response = await axios.get('http://127.0.0.1:5000/teachers/');
-      const response = await axios.get('/teachers/');
+      const response = await axios.get('http://127.0.0.1:5000/teachers/');
+      // const response = await axios.get('/teachers/');
       setTeachers(response.data);
       console.log(response.data);
   }
