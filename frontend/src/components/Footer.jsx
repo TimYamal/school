@@ -6,8 +6,8 @@ function Footer() {
         <div class="footer__content container">
             <address class="footer__contacts">
                 Центр разработки в Уфе. <br />
-                Адрес: ул. Менделеева, 134/7, БЦ «Территория 3000».
-                Телефон: <a className='footer__link' href="tel:+7 347 246-16-44">+7 347 246-16-44</a>
+               <b>Адрес:</b> ул. Менделеева, 134/7, БЦ «Территория 3000».<br/>
+               <b>Телефон:</b> <a className='footer__link' href="tel:+7 347 246-16-44">+7 347 246-16-44</a>
             </address>
             <div class="footer__logo">
                 <a href="https://tensor.ru/">
