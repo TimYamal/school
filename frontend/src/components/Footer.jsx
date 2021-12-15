@@ -15,8 +15,8 @@ function Footer() {
                 </a>
             </div>
             <div class="footer__socialLinks">
-                <a href="https://vk.com/tensor_company" class="footer__item">
-                    <img src="/assets/images/icons/vk.PNG" alt="логотип VK" />
+                <a target="_blank" href="https://vk.com/tensor_company" class="footer__item">
+                    <img target="_blank" src="/assets/images/icons/vk.PNG" alt="логотип VK" />
                 </a>
                 <a href="https://instagram.com/tensor_company/" class="footer__item">
                     <img src="/assets/images/icons/inst.PNG" alt="логотип Inst" />
