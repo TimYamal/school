@@ -16,9 +16,6 @@ function Course(props) {
         // const response = await axios.get(`http://127.0.0.1:5000/course/${index}`)
         const response = await axios.get(`/course/${index}`)
         setCourse(response.data);
-        setTimeout(() => {
-            console.log(course)
-        }, 1000);
     }
 
     function openModal() {

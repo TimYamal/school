@@ -40,6 +40,10 @@
     margin-bottom: 24px;
 }
 
+.header__link.link__phone {
+    font-size: 3rem;
+}
+
 .header__link:hover,
 .menu__link:hover {
     color: var(--gray-light);
@@ -62,6 +66,24 @@
 
 .menu__listItem:hover {
     border-bottom: 2px solid var(--gray-light);
+}
+
+.menu__listItem.active {
+    position: relative;
+}
+
+.menu__listItem.active:hover {
+    border-bottom: 2px solid transparent;
+}
+
+.menu__listItem.active::before {
+    position: absolute;
+    content: '';
+    background-color: var(--orange);
+    width: 100%;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
 }
 
 .menu__link {

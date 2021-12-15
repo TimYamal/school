@@ -18,7 +18,7 @@ function Modal(props) {
     }
 
     function validName (name) {
-        // const regExp = new RegExp(/^[а-яА-Я ,.'-]{2,100}+$/i);
+        // const regExp = new RegExp(/^[а-яА-Я \,\.\'\-]{2,100}+$/i);
         // if(regExp.test(name)) {
         if(name.length > 1) {
             return true
