@@ -28,7 +28,7 @@ class Course(db.Model):
     date_start = db.Column(db.Date)
     duration = db.Column(db.Integer)
     teacher_id = db.Column(db.Integer, db.ForeignKey('teacher.id'))
-    members = db.relationship('Member', backref='course', lazy='joined')
+    members = db.relationship('Member', backref='course', lazy='dynamic')
 
     def __repr__(self):
         return self.title

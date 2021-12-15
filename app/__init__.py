@@ -8,6 +8,7 @@ from flask_admin import Admin, AdminIndexView
 from flask_admin.menu import MenuLink
 from flask_bootstrap import Bootstrap
 from flask_login import LoginManager, current_user
+from flask_mail import Mail, Message
 # from flask_cors import CORS
 
 from config import Config
@@ -16,6 +17,7 @@ db = SQLAlchemy()
 migrate = Migrate()
 admin = Admin(template_mode='bootstrap3')
 bootstrap = Bootstrap()
+mail = Mail()
 
 # Авторизация
 login = LoginManager()
@@ -40,6 +42,7 @@ def create_app(config_class=Config):
     admin.init_app(app, index_view=SchoolAdminIndexView(name='Главная'))
     bootstrap.init_app(app)
     login.init_app(app)
+    mail.init_app(app)
     CKEditor(app)
     # CORS(app)
 
