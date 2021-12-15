@@ -15,14 +15,14 @@ function Footer() {
                 </a>
             </div>
             <div class="footer__socialLinks">
-                <a target="_blank" href="https://vk.com/tensor_company" class="footer__item">
-                    <img target="_blank" src="/assets/images/icons/vk.PNG" alt="логотип VK" />
+                <a  href="https://vk.com/tensor_company" class="footer__item" target="_blank">
+                    <img src="/assets/images/icons/vk.PNG"  alt="логотип VK" />
                 </a>
-                <a href="https://instagram.com/tensor_company/" class="footer__item">
-                    <img src="/assets/images/icons/inst.PNG" alt="логотип Inst" />
+                <a href="https://instagram.com/tensor_company/" class="footer__item" target="_blank">
+                    <img src="/assets/images/icons/inst.PNG"  alt="логотип Inst" />
                 </a>
-                <a href="https://t.me/joinchat/oXOz8dMubx5mZTdi" class="footer__item">
-                    <img src="/assets/images/icons/tg.PNG" alt="логотип TG" />
+                <a href="https://t.me/joinchat/oXOz8dMubx5mZTdi" class="footer__item" target="_blank">
+                    <img src="/assets/images/icons/tg.PNG"  alt="логотип TG" />
                 </a>
             </div>
         </div>
