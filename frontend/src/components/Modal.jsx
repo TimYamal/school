@@ -44,8 +44,8 @@ function Modal(props) {
     async function sendUser (user) {
         console.log(user);
         console.log(props);
-        const response = await axios.post('http://127.0.0.1:5000/member/', user);
-        // const response = await axios.post('/member/', user);
+        // const response = await axios.post('http://127.0.0.1:5000/member/', user);
+        const response = await axios.post('/member/', user);
         console.log(response);
 
     }
