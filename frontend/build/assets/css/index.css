@@ -79,6 +79,10 @@
 
 .slideItem__btnsContainer {
     margin-right: 36px;
+    height: fit-content;
+    align-self: flex-end;
+    position: relative;
+    bottom: -100px;
 }
 
 .slideItem__background {
@@ -120,5 +124,11 @@
 
     .slideItem__btnsContainer {
         margin-top: 24px;
+    }
+}
+
+@media (min-height: 1152px) {
+    .slideItem__background {
+        background-position: right;
     }
 }

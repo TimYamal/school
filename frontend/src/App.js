@@ -1,4 +1,5 @@
-import React, {useState} from 'react';
+import axios from 'axios';
+import React, {useState, useEffect} from 'react';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Index from './components/Index';
@@ -15,8 +16,50 @@ function App() {
   const [modalData, setModalData] = useState(null);
   const [courseId, setCourseId] = useState(null);
 
+  useEffect(() => {
+    setPages()
+  }, [window.location.hash]);
+
+  useEffect(() => {
+    changeTitle()
+  }, [statePage]);
+
+  window.addEventListener('hashchange', setPages);
+
+  function setPages () {
+    const page = window.location.hash.replace('#', '');
+    if (page==='') {
+      openPage('index');
+    } else if (page.indexOf('?') === -1) {
+      openPage(page);
+    } else {
+      const id = window.location.hash.replace('#course?id=', '')
+      setCourseId(id);
+      setPage('course');
+    }
+  }
+
   function openPage (newPage) {
     setPage(newPage);
+  }
+
+  function changeTitle() {
+    if (statePage === 'index') {
+      document.title = 'Школа тензор'
+    } else if (statePage === 'courses') {
+      document.title = 'Наши курсы'
+    } else if (statePage === 'teachers') {
+      document.title = 'Наши преподаватели'
+    } else if (statePage === 'about') {
+      document.title = 'О нас'
+    } else {
+      getTitle(courseId);
+    }
+  }
+
+  async function getTitle (index) {
+      const response = await axios.get(`http://127.0.0.1:5000/course/${index}`);
+      document.title = response.data.title;
   }
 
   function newCourseId (id) {
@@ -36,8 +79,7 @@ function App() {
 
   return (
     <div className="App wrapper">
-      <Header 
-      updatePage={openPage}/>
+      <Header page={statePage}/>
 
       { (() => {
           if (statePage === 'index') {

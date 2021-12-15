@@ -5,9 +5,9 @@ function Footer() {
     <footer class="footer">
         <div class="footer__content container">
             <address class="footer__contacts">
-                Центр разработки в Уфе. <br />
-               <b>Адрес:</b> ул. Менделеева, 134/7, БЦ «Территория 3000».<br/>
-               <b>Телефон:</b> <a className='footer__link' href="tel:+7 347 246-16-44">+7 347 246-16-44</a>
+                <p>Центр разработки в Уфе.</p>
+                <p><b>Адрес:</b> ул. Менделеева, 134/7, БЦ «Территория 3000».</p>
+                <p><b>Телефон:</b> <a className='footer__link' href="tel:+7 347 246-16-44">+7 347 246-16-44</a></p>
             </address>
             <div class="footer__logo">
                 <a href="https://tensor.ru/" target="_blank">
