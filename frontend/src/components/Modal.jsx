@@ -28,7 +28,7 @@ function Modal(props) {
     }
 
     function validEmail (email) {
-        if(email.length > 1) {
+        if(email.length > 3 && email.indexOf('@')!== -1) {
             return true
         } else {
             return false
@@ -37,14 +37,12 @@ function Modal(props) {
 
     function getForm(event) {
         event.preventDefault();
-        let name = document.querySelector('#name').value; // я это переделаю
-        let email = document.querySelector('#email').value; // я это переделаю
-        sendUser({name: name, telephone: 147, email: email, course_id: props.courseData.id})
+        const name = userName;
+        const email = userEmail;
+        sendUser({name: name, telephone: null, email: email, course_id: props.courseData.id})
     }
 
     async function sendUser (user) {
-        console.log(user);
-        console.log(props);
         // const response = await axios.post('http://127.0.0.1:5000/member/', user);
         const response = await axios.post('/member/', user);
         if (response.status === 200) {

@@ -49,6 +49,11 @@ p, ul {
     text-decoration: none;
 }
 
+a:focus-visible,
+button:focus-visible  {
+    outline:none;
+}
+
 .btn {
     font-weight: 500;
     font-size: 1.5rem;
