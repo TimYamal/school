@@ -64,8 +64,14 @@
 }
 
 @media (max-width: 720px) {
+
     .lessons__content {
         display: flex;
         flex-direction: column;
+    }
+
+    .lessons__date {
+        margin-top: 20px;
+        margin-bottom: 20px;
     }
 }

@@ -1,5 +1,6 @@
 html,
-body {
+body,
+#root {
     font-family: 'tahoma', sans-serif;
     font-size: 14px;
     height: 100%;
@@ -124,9 +125,21 @@ button {
     fill: #587AB0;
 }
 
+.br__mobile {
+    display: none;
+}
+
 @media (max-width:1280px) {
+
     .container {
         padding-left: 24px;
         padding-right: 24px;
+    }
+}
+
+@media (max-width:425px) {
+
+    .br__mobile {
+        display: block;
     }
 }

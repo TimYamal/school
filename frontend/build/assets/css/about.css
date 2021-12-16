@@ -10,7 +10,7 @@
 .about__banner{
     width: 100%;
     margin-bottom: 20px;
-    border-radius: 0 0 5px 5px;
+    border-radius: 0 0 20px 20px;
 }
 
 .about__item{
@@ -20,7 +20,6 @@
     padding: 20px;
     border-radius: 20px;
 }
-/* Counter */
 
 .about__counter{
     width: 100%;
@@ -48,3 +47,44 @@
 .counter__disc{
     font-size: 24px;
 }
+
+@media (max-width: 1152px) {
+
+    .about__counter {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 36px;
+        height: fit-content;
+    }
+
+    .counter__item {
+        display: flex;
+        width: 100%;
+    }
+
+    .counter__disc {
+        margin-left: 10px;
+    }
+}
+
+@media (max-width: 1024px) {
+
+    .about__item {
+        width: 100%;
+    }
+
+    .about__counter {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .counter__value {
+        font-size: 2rem;
+    }
+
+    .counter__disc {
+        font-size: 1.8rem;
+    }
+}
+
+

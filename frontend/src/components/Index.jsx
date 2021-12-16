@@ -23,16 +23,16 @@ function Index(props) {
     }
 
     return (
-        <main class="main">
-            <section class="main__slider container">
-                <div class="main__slideItem">
-                    <div class="slideItem__content">
+        <main className="main">
+            <section className="main__slider container">
+                <div className="main__slideItem">
+                    <div className="slideItem__content">
                         <MainSlider />
-                        <div class="slideItem__right slideItem__btnsContainer">
-                            <a onClick={getOpenSlide} class="btn btn-primary link">ЗАПИСАТЬСЯ</a>
+                        <div className="slideItem__right slideItem__btnsContainer">
+                            <a onClick={getOpenSlide} className="btn btn-primary link">ЗАПИСАТЬСЯ</a>
                         </div>
                     </div>
-                    <div class="slideItem__background"></div>
+                    <div className="slideItem__background"></div>
                 </div>
             </section>
         </main>

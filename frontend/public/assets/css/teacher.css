@@ -1,4 +1,5 @@
 .teachers {
+    display: flex;
     padding-top: 50px;
     padding-bottom: 50px;
     text-align: center;
@@ -12,6 +13,7 @@
 }
 
 .teachers_item {
+    max-width: 250px;
     width: 100%;
     padding: 20px;
     text-align: center;
@@ -41,4 +43,13 @@
 
 .teacher_disc {
     margin-top: 16px;
+}
+
+@media (max-width: 768px) {
+
+    .teachers__wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
 }

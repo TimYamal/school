@@ -17,13 +17,15 @@ function Teachers() {
   }
   
   return (
-    <main class="teachers container">
-      <div class="teachers__wrapper">
-        {
-          teachers && teachers.map((teacher) => {
-            return <TeacherItem teacher={teacher}/>
-          })
-        }
+    <main className="teachers">
+      <div className="container">
+        <div className="teachers__wrapper">
+          {
+            teachers && teachers.map((teacher, index) => {
+              return <TeacherItem key={index} teacher={teacher}/>
+            })
+          }
+        </div>
       </div>
     </main>
   );
