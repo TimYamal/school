@@ -33,16 +33,24 @@
 }
 
 .footer__item {
-    height: 55px; /* почему не работает fit-content */
+    height: 55px;
     border-radius: 50%;
     overflow: hidden;
     margin-right: 48px;
-    opacity: 0.9;
 }
 
-.footer__item:hover {
-    opacity: 1;
+.footer__item .social__img_hover {
+    display: none;
 }
+
+.footer__item:hover .social__img {
+    display: none;
+}
+
+.footer__item:hover .social__img_hover {
+    display: inline-block;
+}
+
 
 .footer__item:last-child {
     margin-right: 0;

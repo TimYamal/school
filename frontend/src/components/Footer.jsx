@@ -16,13 +16,16 @@ function Footer() {
             </div>
             <div class="footer__socialLinks">
                 <a  href="https://vk.com/tensor_company" class="footer__item" target="_blank">
-                    <img src="/assets/images/icons/vk.PNG"  alt="логотип VK" />
+                    <img src="/assets/images/icons/vkblue.png" className='social__img' alt="логотип VK" />
+                    <img src="/assets/images/icons/vkorange.png" className='social__img_hover' alt="логотип VK" />
                 </a>
                 <a href="https://instagram.com/tensor_company/" class="footer__item" target="_blank">
-                    <img src="/assets/images/icons/inst.PNG"  alt="логотип Inst" />
+                    <img src="/assets/images/icons/instblue.png" className='social__img' alt="логотип Inst" />
+                    <img src="/assets/images/icons/instorange.png" className='social__img_hover' alt="логотип Inst" />
                 </a>
                 <a href="https://t.me/joinchat/oXOz8dMubx5mZTdi" class="footer__item" target="_blank">
-                    <img src="/assets/images/icons/tg.PNG"  alt="логотип TG" />
+                    <img src="/assets/images/icons/tgblue.png" className='social__img' alt="логотип TG" />
+                    <img src="/assets/images/icons/tgorange.png" className='social__img_hover' alt="логотип TG" />
                 </a>
             </div>
         </div>
