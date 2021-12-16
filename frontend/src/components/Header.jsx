@@ -4,9 +4,11 @@ function Header(props) {
     return (
         <header class="header">
             <div class="header__content container">
-                <a href="/" id="index" class="header__logo">
-                    <img id="index" src="/assets/images/logo/logo_tensor-school.png" class="header__logoImage" alt="логотип школы Тензор" />
-                </a>
+                <div className="header__left">
+                    <a href="/" id="index" class="header__logo">
+                        <img id="index" src="/assets/images/logo/logo_tensor-school.png" class="header__logoImage" alt="логотип школы Тензор" />
+                    </a>
+                </div>
                 <div className="header__right">
                     <a href="tel:+73472461644" className="header__link link link__phone">+7 347 246-16-44</a>
                     <nav class="header__menu">

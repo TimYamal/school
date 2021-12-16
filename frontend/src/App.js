@@ -6,7 +6,7 @@ import Index from './components/Index';
 import Course from './components/Course';
 import About from './components/About';
 import List from './components/List';
-import Teacher from './components/Teacher';
+import Teachers from './components/Teachers';
 import Modal from './components/Modal';
 
 function App() {
@@ -88,7 +88,7 @@ function App() {
             return <List openModal={observeModal} updatePage={openPage} newCourseId={newCourseId}/>
             // return <Course />
           } else if (statePage === 'teachers') {
-            return <Teacher />
+            return <Teachers />
           } else if (statePage === 'about') {
             return <About />
           } else if (statePage === 'course') {

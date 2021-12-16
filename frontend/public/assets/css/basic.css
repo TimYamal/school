@@ -54,6 +54,11 @@ button:focus-visible  {
     outline:none;
 }
 
+button {
+    border: none;
+    outline:none;
+}
+
 .btn {
     font-weight: 500;
     font-size: 1.5rem;

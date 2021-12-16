@@ -39,6 +39,7 @@ function Course(props) {
                 </div>
                 <div class="course__other">
                     <div class="course__date">{course && dateFormat(course?.date_start)}</div>
+                    <div class="course__duration">{course?.duration} лекций</div>
                     <div class="course__btns">
                         <button onClick={openModal} class="btn btn-secondary btn-signUp">Записаться</button>
                     </div>
