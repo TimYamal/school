@@ -1,7 +1,6 @@
 .course {
     margin-top: 32px;
     display: flex;
-    flex-direction: column;
 }
 
 .course__banner {
@@ -17,6 +16,11 @@
     margin-top: 32px;
     display: flex;
     margin-bottom: 36px;
+}
+
+.course__teacher {
+    display: flex;
+    justify-content: center;
 }
 
 .course__content {
@@ -61,4 +65,16 @@
 .btn-signUp {
     display: block;
     padding: 12px 36px;
+}
+
+@media (max-width: 720px) {
+
+    .course__body {
+        flex-direction: column;
+        margin-bottom: 24px;
+    }
+
+    .course__other {
+        margin-top: 24px;
+    }
 }

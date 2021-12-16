@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, {useEffect, useState} from 'react';
 import moment from 'moment'
 import 'moment/locale/ru';
+import TeacherItem from './TeacherItem';
 
 function Course(props) {
     const {courseId} = props;
@@ -28,21 +29,26 @@ function Course(props) {
     }
 
     return (
-        <main class="course container">
-            <div class="course__banner">
-                <img class="course__bannerImage" src="/assets/images/posts/banner.png" alt="banner" />
-            </div>
-            <div class="course__body">
-                <div class="course__content">
-                    <div class="course__title">{course?.title}</div>
-                    <div class="course__description" dangerouslySetInnerHTML={{__html: course?.description}}></div>
+        <main className="course">
+            <div className="container">
+                <div className="course__banner">
+                    <img className="course__bannerImage" src="/assets/images/posts/banner.png" alt="banner" />
                 </div>
-                <div class="course__other">
-                    <div class="course__date">{course && dateFormat(course?.date_start)}</div>
-                    <div class="course__duration">{course?.duration} лекций</div>
-                    <div class="course__btns">
-                        <button onClick={openModal} class="btn btn-secondary btn-signUp">Записаться</button>
+                <div className="course__body">
+                    <div className="course__content">
+                        <div className="course__title">{course?.title}</div>
+                        <div className="course__description" dangerouslySetInnerHTML={{__html: course?.description}}></div>
                     </div>
+                    <div className="course__other">
+                        <div className="course__date">{course && dateFormat(course?.date_start)}</div>
+                        <div className="course__duration">{course?.duration} лекций</div>
+                        <div className="course__btns">
+                            <button onClick={openModal} className="btn btn-secondary btn-signUp">Записаться</button>
+                        </div>
+                    </div>
+                </div>
+                <div className="course__teacher">
+                    <TeacherItem teacher={course?.teacher}/>
                 </div>
             </div>
         </main>
