@@ -20,7 +20,12 @@ class Courses(Resource):
             "short_description": rec.short_description,
             "description": rec.description,
             "date_start": str(rec.date_start),
-            "duration": str(rec.duration)
+            "duration": str(rec.duration),
+            "teacher":{
+                "surname": rec.teacher.surname,
+                "name": rec.teacher.name,
+                "photo": rec.teacher.photo
+            }
         }
 
 
@@ -34,7 +39,12 @@ class CoursesList(Resource):
             "short_description": rec.short_description,
             "description": rec.description,
             "date_start": str(rec.date_start),
-            "duration": str(rec.duration)
+            "duration": str(rec.duration),
+            "teacher":{
+                "surname": rec.teacher.surname,
+                "name": rec.teacher.name,
+                "photo": rec.teacher.photo
+            }
         } for rec in courses]
 
 
