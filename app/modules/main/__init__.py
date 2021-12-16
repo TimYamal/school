@@ -41,9 +41,11 @@ class CoursesList(Resource):
             "date_start": str(rec.date_start),
             "duration": str(rec.duration),
             "teacher":{
+                "id": rec.teacher.id,
                 "surname": rec.teacher.surname,
                 "name": rec.teacher.name,
-                "photo": rec.teacher.photo
+                "photo": rec.teacher.photo,
+                "description": rec.teacher.description
             }
         } for rec in courses]
 
