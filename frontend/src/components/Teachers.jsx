@@ -1,7 +1,8 @@
 import axios from 'axios';
 import React, {useEffect, useState} from 'react';
+import TeacherItem from './TeacherItem';
 
-function Teacher() {
+function Teachers() {
 
   const [teachers, setTeachers] = useState(null);
 
@@ -20,13 +21,7 @@ function Teacher() {
       <div class="teachers__wrapper">
         {
           teachers && teachers.map((teacher) => {
-            return (
-              <div class="teachers_item">
-                <img class="teacher_img" src={teacher.photo ? teacher.photo : 'https://e7.pngegg.com/pngimages/527/312/png-clipart-computer-icons-icon-design-user-web-user-icon-avatar-user.png' } alt={teacher.name} />
-                <p class="teacher_name">{teacher.surname} {teacher.name} {teacher.patronymic}</p>
-                <p class="teacher_course">{teacher.description}</p>
-              </div>
-            )
+            return <TeacherItem teacher={teacher}/>
           })
         }
       </div>
@@ -34,4 +29,4 @@ function Teacher() {
   );
 }
 
-export default Teacher;
+export default Teachers;
